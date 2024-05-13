@@ -132,7 +132,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="VC-23-24.cpp" />
-    <ClCompile Include="vc.cpp" />
+    <ClCompile Include="vc.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="vc.h" />
