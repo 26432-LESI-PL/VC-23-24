@@ -76,7 +76,7 @@ int main(void) {
 	video.height = (int)capture.get(cv::CAP_PROP_FRAME_HEIGHT);
 
 	/* Cria uma janela para exibir o v�deo */
-	cv::namedWindow("VC - VIDEO", cv::WINDOW_AUTOSIZE);
+	cv::namedWindow("VC - VIDEO", cv::WINDOW_NORMAL);
 
 	/* Inicia o timer */
 	vc_timer();
@@ -108,18 +108,17 @@ int main(void) {
 
 
 		// Fa�a o seu c�digo aqui...
-		/*
+		
 		// Cria uma nova imagem IVC
 		IVC *image = vc_image_new(video.width, video.height, 3, 255);
 		// Copia dados de imagem da estrutura cv::Mat para uma estrutura IVC
 		memcpy(image->data, frame.data, video.width * video.height * 3);
 		// Executa uma fun��o da nossa biblioteca vc
-		vc_rgb_get_green(image);
+		vc_rgb_to_hsv(image);
 		// Copia dados de imagem da estrutura IVC para uma estrutura cv::Mat
 		memcpy(frame.data, image->data, video.width * video.height * 3);
 		// Liberta a mem�ria da imagem IVC que havia sido criada
 		vc_image_free(image);
-		*/
 		// +++++++++++++++++++++++++
 
 		/* Exibe a frame */
