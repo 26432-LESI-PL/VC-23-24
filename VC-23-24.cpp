@@ -107,14 +107,29 @@ int main(void) {
 		cv::putText(frame, str, cv::Point(20, 100), cv::FONT_HERSHEY_SIMPLEX, 1.0, cv::Scalar(255, 255, 255), 1);
 
 
-		// Fa�a o seu c�digo aqui...
+		/*
+		Implementação de técnicas de segmentação (por tonalidade e/ou brilho);
+		Implementação de técnicas para melhoramento de imagem (e.g., remoção de ruído);
+		Implementação de técnicas de análise de imagem que permitam determinar:
+			Área;
+			Caixa delimitadora;
+			CentRo de massa (centroide); entre outras informações que o grupo entenda como relevantes.
+		Algoritmos que permitam distinguir as diferentes resistências:
+			Identificação das diferentes faixas de cor das resistências;
+			Identificação das resistências, permitindo a sua distinção relativamente a outros componentes eletrónicos presentes no vídeo.
+		*/
 		
 		// Cria uma nova imagem IVC
 		IVC *image = vc_image_new(video.width, video.height, 3, 255);
 		// Copia dados de imagem da estrutura cv::Mat para uma estrutura IVC
 		memcpy(image->data, frame.data, video.width * video.height * 3);
-		// Executa uma fun��o da nossa biblioteca vc
+		// Converte imagem de RGB para HSV
 		vc_rgb_to_hsv(image);
+		// Segmentação por tonalidade
+		// int vc_hsv_segmentation(IVC* srcdst, int hmin, int hmax, int smin, int smax, int vmin, int vmax);
+		// hmin,hmax = [0, 360]; smin,smax = [0, 100]; vmin,vmax = [0, 100]
+		vc_hsv_segmentation(image, 0, 200, 0, 50, 0, 50);
+		//vc_hsv_to_rgb(image);
 		// Copia dados de imagem da estrutura IVC para uma estrutura cv::Mat
 		memcpy(frame.data, image->data, video.width * video.height * 3);
 		// Liberta a mem�ria da imagem IVC que havia sido criada
