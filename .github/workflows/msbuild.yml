@@ -30,8 +30,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: microsoft/setup-msbuild@v1.0.2
-    - name: Install OpenCV
-      run: vcpkg install opencv
+    - name: Install opencv
+      uses: cvpkg/opencv-action@v0.1
+      with:
+        opencv_tag: '4.9.0'
     - name: Restore NuGet packages
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: nuget restore ${{env.SOLUTION_FILE_PATH}}
