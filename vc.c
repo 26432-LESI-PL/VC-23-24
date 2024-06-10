@@ -394,7 +394,7 @@ float fmodf(float a, float b)
 	return a - (int)(a / b) * b;
 }*/
 
-int vc_3chanels_to_1(IVC* src, IVC* dst)
+int vc_3channels_to_1(IVC* src, IVC* dst)
 {
 	unsigned char* data_src = (unsigned char*)src->data;
 	unsigned char* data_dst = (unsigned char*)dst->data;
@@ -443,7 +443,7 @@ int vc_3chanels_to_1(IVC* src, IVC* dst)
 	return 1;
 }
 
-int vc_3chanels_to_1_binary(IVC* src, IVC* dst)
+int vc_3channels_to_1_binary(IVC* src, IVC* dst)
 {
 	unsigned char* data_src = (unsigned char*)src->data;
 	unsigned char* data_dst = (unsigned char*)dst->data;
@@ -550,7 +550,11 @@ int vc_rgb_to_binary(IVC* srcdst)
 }
 
 
-// Função para converter uma imagem RGB para uma imagem HSV
+/* Função para converter uma imagem RGB para uma imagem HSV
+ * Hue - 0 a 255 (convertido de 0 a 360 graus)
+ * Saturation - 0 a 255
+ * Value - 0 a 255 
+ */
 int vc_rgb_to_hsv(IVC* srcdst)
 {
 	unsigned char* data = (unsigned char*)srcdst->data;
