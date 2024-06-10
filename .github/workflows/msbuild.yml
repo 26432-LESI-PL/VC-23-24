@@ -29,7 +29,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-
+    - uses: QQxiaoming/setup-opencv-action@latest
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
 
